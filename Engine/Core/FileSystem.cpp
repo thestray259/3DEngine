@@ -27,7 +27,7 @@ namespace nc
 
 		std::stringstream stream;
 		//<use rdbuf() on file stream to read file into string stream>
-		fileStream.rdbuf(); 
+		stream << fileStream.rdbuf(); 
 		filestring = stream.str(); //<use stream str() method to return stream string>
 
 		fileStream.close();

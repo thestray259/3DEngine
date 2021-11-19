@@ -29,7 +29,6 @@ namespace nc
 		// compile shader
 		const char* source_c = source.c_str(); // <get the c_str of the source string>
 		glShaderSource(shader, 1, &source_c, NULL);
-		//< compile the shader https ://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glCompileShader.xhtml>
 		glCompileShader(shader); 
 
 		// check shader compilation status

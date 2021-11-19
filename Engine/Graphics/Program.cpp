@@ -105,25 +105,25 @@ namespace nc
 	void Program::SetUniform(const std::string& name, float value)
 	{
 		GLint uniform = GetUniform(name);
-		//glUniform1f(uniform, value); 
+		glUniform1f(uniform, value); 
 	}
 
 	void Program::SetUniform(const std::string& name, int value)
 	{
 		GLint uniform = GetUniform(name);
-		//glUniform1f(uniform, value);
+		glUniform1i(uniform, value);
 	}
 
 	void Program::SetUniform(const std::string& name, bool value)
 	{
 		GLint uniform = GetUniform(name);
-		//glUniform1f(uniform, value);
+		glUniform1i(uniform, value);
 	}
 
 	void Program::SetUniform(const std::string& name, GLuint value)
 	{
 		GLint uniform = GetUniform(name);
-		//glUniform1f(uniform, value);
+		glUniform1ui(uniform, value);
 	}
 
 	GLint Program::GetUniform(const std::string& name)
