@@ -30,6 +30,8 @@
 #include "Graphics/Shader.h"
 #include "Graphics/Program.h"
 #include "Graphics/Material.h"
+#include "Graphics/VertexBuffer.h"
+#include "Graphics/VertexIndexBuffer.h"
 
 // input 
 #include "Input/InputSystem.h"
