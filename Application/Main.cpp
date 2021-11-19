@@ -59,55 +59,64 @@ int main(int argc, char** argv)
 	engine.Get<nc::Renderer>()->Create("OpenGL", 800, 600);
 
 	nc::SeedRandom(static_cast<unsigned int>(time(nullptr)));
-	nc::SetFilePath("../resources");
+	nc::SetFilePath("../Resources");
 
-	// set vertex shader
-	GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
-	glShaderSource(vertexShader, 1, &vertexSource, NULL); 
-	glCompileShader(vertexShader); 
+	std::shared_ptr<nc::Program> program = engine.Get<nc::ResourceSystem>()->Get<nc::Program>("basic_program");
+	std::shared_ptr<nc::Shader> vshader = engine.Get<nc::ResourceSystem>()->Get<nc::Shader>("shaders/basic.vert", (void*)GL_VERTEX_SHADER);
+	std::shared_ptr<nc::Shader> fshader = engine.Get<nc::ResourceSystem>()->Get<nc::Shader>("shaders/basic.frag", (void*)GL_FRAGMENT_SHADER);
 
-	GLint status;
-	glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &status);
-	if (status == GL_FALSE)
-	{
-		char buffer[512];
-		glGetShaderInfoLog(vertexShader, 512, NULL, buffer);
-		std::cout << buffer;
-	}
+	program->AddShader(vshader);
+	program->AddShader(fshader);
+	program->Link();
+	program->Use();
 
-	// set fragment shader
-	GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(fragmentShader, 1, &fragmentSource, NULL);
-	glCompileShader(fragmentShader);
+	//// set vertex shader
+	//GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
+	//glShaderSource(vertexShader, 1, &vertexSource, NULL); 
+	//glCompileShader(vertexShader); 
 
-	GLint statusf;
-	glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &statusf);
-	if (statusf == GL_FALSE)
-	{
-		char buffer[512];
-		glGetShaderInfoLog(fragmentShader, 512, NULL, buffer);
-		std::cout << buffer;
-	}
+	//GLint status;
+	//glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &status);
+	//if (status == GL_FALSE)
+	//{
+	//	char buffer[512];
+	//	glGetShaderInfoLog(vertexShader, 512, NULL, buffer);
+	//	std::cout << buffer;
+	//}
 
-	// create shader program 
-	GLuint shaderProgram = glCreateProgram(); 
-	glAttachShader(shaderProgram, vertexShader); 
-	glAttachShader(shaderProgram, fragmentShader);
+	//// set fragment shader
+	//GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+	//glShaderSource(fragmentShader, 1, &fragmentSource, NULL);
+	//glCompileShader(fragmentShader);
 
-	glLinkProgram(shaderProgram); 
-	glUseProgram(shaderProgram); 
+	//GLint statusf;
+	//glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &statusf);
+	//if (statusf == GL_FALSE)
+	//{
+	//	char buffer[512];
+	//	glGetShaderInfoLog(fragmentShader, 512, NULL, buffer);
+	//	std::cout << buffer;
+	//}
 
-	// link and use shader program 
-	glLinkProgram(shaderProgram); 
-	glGetProgramiv(shaderProgram, GL_COMPILE_STATUS, &statusf);
-	if (statusf == GL_FALSE)
-	{
-		char buffer[512];
-		glGetShaderInfoLog(shaderProgram, 512, NULL, buffer);
-		std::cout << buffer;
-	}
+	//// create shader program 
+	//GLuint shaderProgram = glCreateProgram(); 
+	//glAttachShader(shaderProgram, vertexShader); 
+	//glAttachShader(shaderProgram, fragmentShader);
 
-	glUseProgram(shaderProgram); 
+	//glLinkProgram(shaderProgram); 
+	//glUseProgram(shaderProgram); 
+
+	//// link and use shader program 
+	//glLinkProgram(shaderProgram); 
+	//glGetProgramiv(shaderProgram, GL_COMPILE_STATUS, &statusf);
+	//if (statusf == GL_FALSE)
+	//{
+	//	char buffer[512];
+	//	glGetShaderInfoLog(shaderProgram, 512, NULL, buffer);
+	//	std::cout << buffer;
+	//}
+
+	//glUseProgram(shaderProgram); 
 
 	// vertex array 
 	GLuint vao; 
@@ -137,10 +146,10 @@ int main(int argc, char** argv)
 	glEnableVertexAttribArray(1);
 
 	// uniform 
-	GLuint location = glGetUniformLocation(shaderProgram, "scale"); 
+	//GLuint location = glGetUniformLocation(shaderProgram, "scale"); 
 	float time = 0; 
 
-	GLuint tintLocation = glGetUniformLocation(shaderProgram, "tint");
+	//GLuint tintLocation = glGetUniformLocation(shaderProgram, "tint");
 	glm::vec3 tint{ 1.0f, 0.5f, 0.5f }; 
 
 	bool quit = false;
@@ -164,8 +173,11 @@ int main(int argc, char** argv)
 		SDL_PumpEvents();
 
 		time += 0.0001f; 
-		glUniform1f(location, std::sin(time)); 
-		glUniform3fv(tintLocation, 1, &tint[0]);
+		//glUniform1f(location, std::sin(time)); 
+		//glUniform3fv(tintLocation, 1, &tint[0]);
+
+		program->SetUniform("scale", time);
+		program->SetUniform("tint", tint);
 
 		engine.Get<nc::Renderer>()->BeginFrame(); 
 

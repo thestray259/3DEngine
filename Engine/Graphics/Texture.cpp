@@ -1,7 +1,7 @@
 #include "Texture.h"
 #include <SDL_image.h>
-#include <iostream>
-#include <cassert>
+//#include <iostream>
+//#include <cassert>
 
 namespace nc
 {
@@ -22,7 +22,7 @@ namespace nc
 
         SDL_Surface* surface = IMG_Load(filename.c_str());
         FlipSurface(surface);
-        
+
         if (surface == nullptr)
         {
             SDL_Log("Failed to create surface: %s", SDL_GetError());
@@ -66,4 +66,5 @@ namespace nc
 
         SDL_UnlockSurface(surface);
     }
+
 }

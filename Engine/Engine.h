@@ -27,6 +27,9 @@
 // graphics
 #include "Graphics/Renderer.h"
 #include "Graphics/Texture.h"
+#include "Graphics/Shader.h"
+#include "Graphics/Program.h"
+#include "Graphics/Material.h"
 
 // input 
 #include "Input/InputSystem.h"
