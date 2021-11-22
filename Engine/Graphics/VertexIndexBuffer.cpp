@@ -23,7 +23,7 @@ namespace nc
 		this->indexType = indexType;
 		this->indexCount = indexCount;
 
-		glGenBuffers(indexCount, &ibo); 
+		glGenBuffers(1, &ibo); 
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo); 
 
 		size_t indexSize = (indexType == GL_UNSIGNED_SHORT) ? sizeof(GLushort) : sizeof(GLuint);
@@ -33,6 +33,6 @@ namespace nc
 	void VertexIndexBuffer::Draw(GLenum primitiveType)
 	{
 		glBindVertexArray(vao); 
-		glDrawElements(primitiveType, indexCount, indexType, NULL); //could be wrong 
+		glDrawElements(primitiveType, indexCount, indexType, 0); //could be wrong 
 	}
 }

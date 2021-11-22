@@ -16,7 +16,7 @@ namespace nc
 
 	bool VertexBuffer::Load(const std::string& name, void* null)
 	{
-		glGenVertexArrays(vertexCount, &vao); 
+		glGenVertexArrays(1, &vao); 
 		glBindVertexArray(vao); 
 
 		return true;
@@ -26,7 +26,7 @@ namespace nc
 	{
 		this->vertexCount = vertexCount;
 
-		glGenBuffers(vertexCount, &vbo); 
+		glGenBuffers(1, &vbo); 
 		glBindBuffer(GL_ARRAY_BUFFER, vbo); 
 		glBufferData(GL_ARRAY_BUFFER, size, data, GL_STATIC_DRAW);
 	}
@@ -40,6 +40,6 @@ namespace nc
 	void VertexBuffer::Draw(GLenum primitiveType)
 	{
 		glBindVertexArray(vao); 
-		glDrawArrays(primitiveType, vao,vertexCount);
+		glDrawArrays(primitiveType, vao, vertexCount);
 	}
 }

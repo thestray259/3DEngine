@@ -8,49 +8,39 @@
 // vertices
 const float vertices[] =
 {
-	-0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 
-	 0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 
-	 0.5f,  0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 
-	-0.5f,  0.5f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f 
+	// front
+	-1.0f, -1.0f,  1.0, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+	 1.0f, -1.0f,  1.0, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
+	 1.0f,  1.0f,  1.0, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
+	-1.0f,  1.0f,  1.0, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f,
+	// back
+	-1.0f, -1.0f, -1.0, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
+	 1.0f, -1.0f, -1.0, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+	 1.0f,  1.0f, -1.0, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f,
+	-1.0f,  1.0f, -1.0, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f
 };
 
 const GLuint indices[] =
 {
-	0, 2, 1,
-	0, 3, 2
+	// front
+	0, 1, 2,
+	2, 3, 0,
+	// right
+	1, 5, 6,
+	6, 2, 1,
+	// back
+	7, 6, 5,
+	5, 4, 7,
+	// left
+	4, 0, 3,
+	3, 7, 4,
+	// bottom
+	4, 5, 1,
+	1, 0, 4,
+	// top
+	3, 2, 6,
+	6, 7, 3
 };
-
-// vertex shader
-const char* vertexSource = R"(
-    #version 430 core 
-    layout(location = 0) in vec3 position;
-    layout(location = 1) in vec3 color;
-
-	out vec3 fs_color; 
-
-	uniform float scale; 
-
-    void main()
-    {
-		fs_color = color; 
-        gl_Position = vec4(position * scale, 1.0);
-    }
-)";
-
-// fragment
-const char* fragmentSource = R"(
-    #version 430 core
-	in vec3 fs_color; 
-
-    out vec4 outColor;
-	
-	uniform vec3 tint; 
-
-    void main()
-    {
-        outColor = vec4(fs_color, 1.0) * vec4(tint, 1.0);
-    }
-)";
 
 int main(int argc, char** argv)
 {
@@ -64,6 +54,13 @@ int main(int argc, char** argv)
 	std::shared_ptr<nc::Program> program = engine.Get<nc::ResourceSystem>()->Get<nc::Program>("basic_program"); 
 	std::shared_ptr<nc::Shader> vshader = engine.Get<nc::ResourceSystem>()->Get<nc::Shader>("shaders/basic.vert", (void*)GL_VERTEX_SHADER);
 	std::shared_ptr<nc::Shader> fshader = engine.Get<nc::ResourceSystem>()->Get<nc::Shader>("shaders/basic.frag", (void*)GL_FRAGMENT_SHADER);
+	
+
+	program->AddShader(vshader);
+	program->AddShader(fshader);
+	program->Link();
+	program->Use();
+
 	std::shared_ptr<nc::VertexIndexBuffer> vertexBuffer = engine.Get<nc::ResourceSystem>()->Get<nc::VertexIndexBuffer>("vertex_index_buffer");
 
 	vertexBuffer->CreateVertexBuffer(sizeof(vertices), 4, (void*)vertices);
@@ -71,12 +68,7 @@ int main(int argc, char** argv)
 	vertexBuffer->SetAttribute(0, 3, 8 * sizeof(float), 0);
 	vertexBuffer->SetAttribute(1, 3, 8 * sizeof(float), (3 * sizeof(float)));
 
-	program->AddShader(vshader);
-	program->AddShader(fshader);
-	program->Link();
-	program->Use();
-
-	//// vertex array 
+	// vertex array 
 	//GLuint vao; 
 	//glGenVertexArrays(1, &vao); 
 	//glBindVertexArray(vao); 
@@ -103,7 +95,7 @@ int main(int argc, char** argv)
 	//glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
 	//glEnableVertexAttribArray(1);
 
-	// uv 
+	//// uv 
 	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
 	glEnableVertexAttribArray(2);
 
@@ -118,6 +110,13 @@ int main(int argc, char** argv)
 
 	glm::vec3 tint{ 1.0f, 0.5f, 0.5f }; 
 	program->SetUniform("tint", tint);
+
+	glm::mat4 view{ 1 }; 
+	view = glm::lookAt(glm::vec3{ 0, 0, 1 }, { 0, 0, 0 }, { 0, 1, 0 }); 
+	program->SetUniform("view", view); 
+
+	glm::vec3 translate{ 0 };
+	float angle = 0; 
 
 	bool quit = false;
 	while (!quit)
@@ -141,12 +140,41 @@ int main(int argc, char** argv)
 		engine.Update(); 
 
 		time += engine.time.deltaTime; 
-		program->SetUniform("scale", std::sin(time)); 
+		program->SetUniform("scale", 1.0f); 
+
+		
+		if (engine.Get<nc::InputSystem>()->GetKeyState(SDL_SCANCODE_A) == nc::InputSystem::eKeyState::Held)
+		{
+			translate.x -= 1 * engine.time.deltaTime; 
+		}
+
+		if (engine.Get<nc::InputSystem>()->GetKeyState(SDL_SCANCODE_D) == nc::InputSystem::eKeyState::Held)
+		{
+			translate.x += 1 * engine.time.deltaTime;
+		}
+
+		if (engine.Get<nc::InputSystem>()->GetKeyState(SDL_SCANCODE_W) == nc::InputSystem::eKeyState::Held)
+		{
+			translate.y += 1 * engine.time.deltaTime;
+		}
+
+		if (engine.Get<nc::InputSystem>()->GetKeyState(SDL_SCANCODE_S) == nc::InputSystem::eKeyState::Held)
+		{
+			translate.y -= 1 * engine.time.deltaTime;
+		}
+
+		angle += engine.time.deltaTime; 
+		glm::mat4 model{ 1.0f };
+
+		model = glm::translate(model, translate);
+		model = glm::rotate(model, angle, glm::vec3{ 0, 1, 0 });
+		model = glm::scale(model, glm::vec3{ 0.25f });
+		program->SetUniform("model", model); 
 
 		engine.Get<nc::Renderer>()->BeginFrame(); 
 
-		//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0); 
-		vertexBuffer->Draw();
+		//glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0); 
+		vertexBuffer->Draw(GL_TRIANGLES);
 
 		engine.Get<nc::Renderer>()->EndFrame(); 
 	}

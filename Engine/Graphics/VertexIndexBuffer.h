@@ -3,7 +3,7 @@
 
 namespace nc
 {
-	class VertexIndexBuffer : public VertexBuffer //<derive from VertexBuffer class (make sure it’s public)>
+	class VertexIndexBuffer : public VertexBuffer
 	{
 	public:
 		~VertexIndexBuffer();
