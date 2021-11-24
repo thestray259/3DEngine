@@ -45,6 +45,10 @@
 
 // components 
 #include "Component/PhysicsComponent.h"
+#include "Component/CameraComponent.h"
+#include "Component/MeshComponent.h"
+#include "Component/GraphicsComponent.h"
+#include "Component/AudioComponent.h"
 
 #include <vector>
 #include <memory>
