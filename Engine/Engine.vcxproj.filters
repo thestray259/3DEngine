@@ -109,6 +109,9 @@
     <ClCompile Include="Component\AudioComponent.cpp">
       <Filter>Source Files\Component</Filter>
     </ClCompile>
+    <ClCompile Include="Component\FreeCameraController.cpp">
+      <Filter>Source Files\Component</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\EventSystem.h">
@@ -215,6 +218,9 @@
     </ClInclude>
     <ClInclude Include="Math\MathTypes.h">
       <Filter>Source Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\FreeCameraController.h">
+      <Filter>Source Files\Component</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

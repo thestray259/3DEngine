@@ -192,6 +192,7 @@ fmod_vc.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     <ClCompile Include="Audio\AudioSystem.cpp" />
     <ClCompile Include="Component\AudioComponent.cpp" />
     <ClCompile Include="Component\CameraComponent.cpp" />
+    <ClCompile Include="Component\FreeCameraController.cpp" />
     <ClCompile Include="Component\MeshComponent.cpp" />
     <ClCompile Include="Component\PhysicsComponent.cpp" />
     <ClCompile Include="Core\FileSystem.cpp" />
@@ -216,6 +217,7 @@ fmod_vc.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
   <ItemGroup>
     <ClInclude Include="Audio\AudioChannel.h" />
     <ClInclude Include="Audio\AudioSystem.h" />
+    <ClInclude Include="Components\FreeCameraController.h" />
     <ClInclude Include="Component\AudioComponent.h" />
     <ClInclude Include="Component\CameraComponent.h" />
     <ClInclude Include="Component\Component.h" />

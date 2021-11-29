@@ -50,6 +50,8 @@
 #include "Component/GraphicsComponent.h"
 #include "Component/AudioComponent.h"
 
+#include "Component/FreeCameraController.h"
+
 #include <vector>
 #include <memory>
 #include <algorithm>
