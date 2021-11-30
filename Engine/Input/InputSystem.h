@@ -40,8 +40,6 @@ namespace nc
 		bool IsPreviousButtonDown(int id) { return prevMouseButtonState[id]; } 
 		eKeyState GetButtonState(int id); 
 
-
-
 	private: 
 		std::vector<Uint8> keyboardState; 
 		std::vector<Uint8> prevKeyboardState;

@@ -9,8 +9,8 @@ namespace nc
 		if (owner->scene->engine->Get<InputSystem>()->GetButtonState((int)InputSystem::eMouseButton::Left) == InputSystem::eKeyState::Held)
 		{
 			glm::vec2 axis = owner->scene->engine->Get<InputSystem>()->GetMouseRelative() * sensitivity;
-			rotate.x -= glm::radians(axis.y);
-			rotate.y -= glm::radians(axis.x);
+			rotate.x -= glm::radians(axis.x);
+			rotate.y -= glm::radians(axis.y);
 		}
 
 		owner->transform.position += rotate; 
