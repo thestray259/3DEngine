@@ -31,6 +31,7 @@
 #include "Graphics/Program.h"
 #include "Graphics/Material.h"
 #include "Graphics/VertexBuffer.h"
+#include "Graphics/Model.h"
 
 // input 
 #include "Input/InputSystem.h"
@@ -48,6 +49,7 @@
 #include "Component/MeshComponent.h"
 #include "Component/GraphicsComponent.h"
 #include "Component/AudioComponent.h"
+#include "Component/ModelComponent.h"
 
 #include "Component/FreeCameraController.h"
 

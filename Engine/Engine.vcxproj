@@ -92,7 +92,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\SDL2-2.0.14\include;$(ProjectDir);$(SolutionDir)ThirdParty\fmod\api\core\inc;$(SolutionDir)\ThirdParty\Box2D;%(AdditionalIncludeDirectories);$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\SDL2-2.0.14\include;$(ProjectDir);$(SolutionDir)ThirdParty\fmod\api\core\inc;$(SolutionDir)\ThirdParty\Box2D;%(AdditionalIncludeDirectories);$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\assimp\include;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\assimp\include;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\glad\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -117,7 +117,7 @@ fmod_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\SDL2-2.0.14\include;$(ProjectDir);$(SolutionDir)ThirdParty\fmod\api\core\inc;$(SolutionDir)\ThirdParty\Box2D;%(AdditionalIncludeDirectories);$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\SDL2-2.0.14\include;$(ProjectDir);$(SolutionDir)ThirdParty\fmod\api\core\inc;$(SolutionDir)\ThirdParty\Box2D;%(AdditionalIncludeDirectories);$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\assimp\include;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\assimp\include;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\glad\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -142,7 +142,7 @@ fmod_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\SDL2-2.0.14\include;$(ProjectDir);$(SolutionDir)ThirdParty\fmod\api\core\inc;$(SolutionDir)ThirdParty\Box2D;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;%(AdditionalIncludeDirectories);$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\SDL2-2.0.14\include;$(ProjectDir);$(SolutionDir)ThirdParty\fmod\api\core\inc;$(SolutionDir)ThirdParty\Box2D;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;%(AdditionalIncludeDirectories);$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\assimp\include;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\assimp\include;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\glad\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -167,7 +167,7 @@ fmod_vc.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\SDL2-2.0.14\include;$(ProjectDir);$(SolutionDir)ThirdParty\fmod\api\core\inc;$(SolutionDir)ThirdParty\Box2D;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;%(AdditionalIncludeDirectories);$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\SDL2-2.0.14\include;$(ProjectDir);$(SolutionDir)ThirdParty\fmod\api\core\inc;$(SolutionDir)ThirdParty\Box2D;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;%(AdditionalIncludeDirectories);$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\assimp\include;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\assimp\include;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\glad\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -194,6 +194,7 @@ fmod_vc.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     <ClCompile Include="Component\CameraComponent.cpp" />
     <ClCompile Include="Component\FreeCameraController.cpp" />
     <ClCompile Include="Component\MeshComponent.cpp" />
+    <ClCompile Include="Component\ModelComponent.cpp" />
     <ClCompile Include="Component\PhysicsComponent.cpp" />
     <ClCompile Include="Core\FileSystem.cpp" />
     <ClCompile Include="Core\Json.cpp" />
@@ -202,6 +203,7 @@ fmod_vc.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Framework\EventSystem.cpp" />
     <ClCompile Include="Graphics\Material.cpp" />
+    <ClCompile Include="Graphics\Model.cpp" />
     <ClCompile Include="Graphics\Program.cpp" />
     <ClCompile Include="Graphics\Renderer.cpp" />
     <ClCompile Include="Graphics\Shader.cpp" />
@@ -222,6 +224,7 @@ fmod_vc.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     <ClInclude Include="Component\Component.h" />
     <ClInclude Include="Component\GraphicsComponent.h" />
     <ClInclude Include="Component\MeshComponent.h" />
+    <ClInclude Include="Component\ModelComponent.h" />
     <ClInclude Include="Component\PhysicsComponent.h" />
     <ClInclude Include="Core\FileSystem.h" />
     <ClInclude Include="Core\Json.h" />
@@ -234,6 +237,7 @@ fmod_vc.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     <ClInclude Include="Framework\Singleton.h" />
     <ClInclude Include="Framework\System.h" />
     <ClInclude Include="Graphics\Material.h" />
+    <ClInclude Include="Graphics\Model.h" />
     <ClInclude Include="Graphics\Program.h" />
     <ClInclude Include="Graphics\Renderer.h" />
     <ClInclude Include="Graphics\Shader.h" />
