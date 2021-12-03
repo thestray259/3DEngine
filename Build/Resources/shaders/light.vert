@@ -11,6 +11,7 @@ struct Material
 	vec3 ambient; 
 	vec3 diffuse; 
 	vec3 specular; 
+	vec3 shininess; 
 };
 
 struct Light
@@ -54,7 +55,10 @@ void main()
         specular = material.specular * light.specular * intensity;
 	}
 
-	fs_color = ambient + diffuse + specular; 
+	// shininess
+	vec3 shininess = ambient; 
+
+	fs_color = ambient + diffuse + specular + shininess; 
 	fs_texcoord = texcoord; 
     gl_Position = projection * view * model * vec4(position, 1.0);
 }

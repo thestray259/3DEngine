@@ -1,6 +1,7 @@
 #pragma once
 
 #define REGISTER_CLASS(class) nc::ObjectFactory::Instance().Register<class>(#class); 
+#define CREATE_ENGINE_OBJECT(class) nc::ObjectFactory::Instance().Create<nc::class>(#class); 
 
 // core 
 #include "Core/Utilities.h"
@@ -50,6 +51,7 @@
 #include "Component/GraphicsComponent.h"
 #include "Component/AudioComponent.h"
 #include "Component/ModelComponent.h"
+#include "Component/LightComponent.h"
 
 #include "Component/FreeCameraController.h"
 
