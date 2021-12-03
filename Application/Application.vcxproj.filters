@@ -28,22 +28,40 @@
     <None Include="..\Build\Resources\materials\wood.mtl">
       <Filter>Resource Files\Material</Filter>
     </None>
-    <None Include="..\Build\Resources\shaders\light.vert">
-      <Filter>Resource Files\Shader</Filter>
-    </None>
     <None Include="..\Build\Resources\shaders\basic.frag">
       <Filter>Resource Files\Shader</Filter>
     </None>
     <None Include="..\Build\Resources\shaders\basic.vert">
       <Filter>Resource Files\Shader</Filter>
     </None>
-    <None Include="..\Build\Resources\shaders\light.frag">
-      <Filter>Resource Files\Shader</Filter>
-    </None>
     <None Include="..\Build\Resources\materials\spot.mtl">
       <Filter>Resource Files\Material</Filter>
     </None>
-    <None Include="..\Build\Resources\shaders\light.shdr">
+    <None Include="..\Build\Resources\shaders\gouraud.frag">
+      <Filter>Resource Files\Shader</Filter>
+    </None>
+    <None Include="..\Build\Resources\shaders\gouraud.shdr">
+      <Filter>Resource Files\Shader</Filter>
+    </None>
+    <None Include="..\Build\Resources\shaders\gouraud.vert">
+      <Filter>Resource Files\Shader</Filter>
+    </None>
+    <None Include="..\Build\Resources\shaders\flat.frag">
+      <Filter>Resource Files\Shader</Filter>
+    </None>
+    <None Include="..\Build\Resources\shaders\flat.shdr">
+      <Filter>Resource Files\Shader</Filter>
+    </None>
+    <None Include="..\Build\Resources\shaders\flat.vert">
+      <Filter>Resource Files\Shader</Filter>
+    </None>
+    <None Include="..\Build\Resources\shaders\phong.frag">
+      <Filter>Resource Files\Shader</Filter>
+    </None>
+    <None Include="..\Build\Resources\shaders\phong.shdr">
+      <Filter>Resource Files\Shader</Filter>
+    </None>
+    <None Include="..\Build\Resources\shaders\phong.vert">
       <Filter>Resource Files\Shader</Filter>
     </None>
   </ItemGroup>

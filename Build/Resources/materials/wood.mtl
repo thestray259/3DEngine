@@ -1,21 +1,22 @@
 {
-    "ambient":[
-        1,
-        1,
-        0
+    "ambient": [
+      1,
+      1,
+      0
     ],
-    "diffuse":[
-        1,
-        1,
-        1
+    "diffuse": [
+      1,
+      1,
+      1
     ],
-    "specular":[
-        1,
-        1,
-        1
+    "specular": [
+      1,
+      1,
+      1
     ],
-    "shader_name":"shaders/light.shdr",
-    "texture_names":[
-        "textures/wood.png"
+    "shininess": 64,
+    "shader_name": "shaders/phong.shdr",
+    "texture_names": [
+      "textures/wood.png"
     ]
 }

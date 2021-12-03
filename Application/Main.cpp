@@ -58,8 +58,8 @@ int main(int argc, char** argv)
 
 	// create shaders 
 	std::shared_ptr<nc::Program> program = engine->Get<nc::ResourceSystem>()->Get<nc::Program>("light_shader"); 
-	std::shared_ptr<nc::Shader> vshader = engine->Get<nc::ResourceSystem>()->Get<nc::Shader>("shaders/light.vert", (void*)GL_VERTEX_SHADER);
-	std::shared_ptr<nc::Shader> fshader = engine->Get<nc::ResourceSystem>()->Get<nc::Shader>("shaders/light.frag", (void*)GL_FRAGMENT_SHADER);
+	std::shared_ptr<nc::Shader> vshader = engine->Get<nc::ResourceSystem>()->Get<nc::Shader>("shaders/phong.vert", (void*)GL_VERTEX_SHADER);
+	std::shared_ptr<nc::Shader> fshader = engine->Get<nc::ResourceSystem>()->Get<nc::Shader>("shaders/phong.frag", (void*)GL_FRAGMENT_SHADER);
 	
 	program->AddShader(vshader);
 	program->AddShader(fshader);
@@ -146,9 +146,9 @@ int main(int argc, char** argv)
 		shader->SetUniform("light.specular", glm::vec3{ 1 });
 		shader->SetUniform("material.specular", glm::vec3{ 1 });
 
-		shader->SetUniform("light.position", glm::vec4{ 4, 4, 4, 1 });
+		shader->SetUniform("light.position", glm::vec4{ 4, 1, 4, 1 });
 
-		// NEW STUFF HERE
+		//NEW STUFF HERE
 		//auto actor = CREATE_ENGINE_OBJECT(Actor);
 		//actor->name = "light";
 		//actor->transform.position = glm::vec3{ 4 };
