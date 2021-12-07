@@ -82,5 +82,17 @@
     <None Include="..\Build\Resources\materials\bricks.mtl">
       <Filter>Resource Files\Material</Filter>
     </None>
+    <None Include="..\Build\Resources\materials\ogre.mtl">
+      <Filter>Resource Files\Material</Filter>
+    </None>
+    <None Include="..\Build\Resources\shaders\phong_normal_optimize.frag">
+      <Filter>Resource Files\Shader</Filter>
+    </None>
+    <None Include="..\Build\Resources\shaders\phong_normal_optimize.shdr">
+      <Filter>Resource Files\Shader</Filter>
+    </None>
+    <None Include="..\Build\Resources\shaders\phong_normal_optimize.vert">
+      <Filter>Resource Files\Shader</Filter>
+    </None>
   </ItemGroup>
 </Project>

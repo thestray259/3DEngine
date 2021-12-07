@@ -1,0 +1,4 @@
+{
+	"vertex_shader": "shaders/phong_normal_optimize.vert",
+	"fragment_shader": "shaders/phong_normal_optimize.frag"
+}
