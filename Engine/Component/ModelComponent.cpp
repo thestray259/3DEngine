@@ -10,6 +10,7 @@ namespace nc
 
 	void ModelComponent::Draw(Renderer* renderer)
 	{
+		material->shader->Use(); 
 		material->shader->SetUniform("model", owner->transform.matrix);
 		auto actor = owner->scene->FindActor("camera");
 		if (actor != nullptr)

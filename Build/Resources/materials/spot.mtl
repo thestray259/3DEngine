@@ -15,7 +15,7 @@
       1
     ],
     "shininess": 64,
-    "shader_name": "shaders/gouraud.shdr",
+    "shader_name": "shaders/effects.shdr",
     "texture_names": [
       "textures/spot.png"
     ]

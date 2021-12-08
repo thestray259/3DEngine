@@ -171,6 +171,9 @@
     <None Include="..\Build\Resources\scenes\main.scn" />
     <None Include="..\Build\Resources\shaders\basic.frag" />
     <None Include="..\Build\Resources\shaders\basic.vert" />
+    <None Include="..\Build\Resources\shaders\effects.frag" />
+    <None Include="..\Build\Resources\shaders\effects.shdr" />
+    <None Include="..\Build\Resources\shaders\effects.vert" />
     <None Include="..\Build\Resources\shaders\flat.frag" />
     <None Include="..\Build\Resources\shaders\flat.shdr" />
     <None Include="..\Build\Resources\shaders\flat.vert" />

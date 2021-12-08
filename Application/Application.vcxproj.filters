@@ -94,5 +94,14 @@
     <None Include="..\Build\Resources\shaders\phong_normal_optimize.vert">
       <Filter>Resource Files\Shader</Filter>
     </None>
+    <None Include="..\Build\Resources\shaders\effects.frag">
+      <Filter>Resource Files\Shader</Filter>
+    </None>
+    <None Include="..\Build\Resources\shaders\effects.shdr">
+      <Filter>Resource Files\Shader</Filter>
+    </None>
+    <None Include="..\Build\Resources\shaders\effects.vert">
+      <Filter>Resource Files\Shader</Filter>
+    </None>
   </ItemGroup>
 </Project>

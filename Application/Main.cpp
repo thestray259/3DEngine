@@ -22,6 +22,7 @@ int main(int argc, char** argv)
 	glm::vec3 translate{ 0 };
 	float angle = 0; 
 
+	float time = 0; 
 	bool quit = false;
 	while (!quit)
 	{
@@ -44,17 +45,32 @@ int main(int argc, char** argv)
 		engine->Update(); 
 		scene->Update(engine->time.deltaTime);
 
-		// update actor
-		//auto actor = scene->FindActor("model");
+		time += engine->time.deltaTime; 
+
+		//auto actor = scene->FindActor("light");
 		//if (actor != nullptr)
 		//{
-		//	actor->transform.rotation.y += engine->time.deltaTime;
+		//	glm::mat3 rotation = glm::rotate(engine->time.deltaTime, glm::vec3{ 0, 0, 1 });
+		//	actor->transform.position = actor->transform.position * rotation;
 		//}
-		auto actor = scene->FindActor("light");
+		// update actor
+		auto actor = scene->FindActor("model");
 		if (actor != nullptr)
 		{
-			glm::mat3 rotation = glm::rotate(engine->time.deltaTime, glm::vec3{ 0, 0, 1 });
-			actor->transform.position = actor->transform.position * rotation;
+			actor->transform.rotation = actor->transform.rotation + glm::vec3{ 0, engine->time.deltaTime, 0 };
+			auto component = actor->GetComponent<nc::ModelComponent>();
+		}
+
+		// update shader 
+		auto shader = engine->Get<nc::ResourceSystem>()->Get<nc::Program>("shaders/effects.shdr");
+		if (shader)
+		{
+			shader->Use(); 
+			shader->SetUniform("time", time); 
+			shader->SetUniform("uv.tiling", glm::vec2{ 3 }); 
+			shader->SetUniform("uv.offset", glm::vec2{ 0, time }); 
+			shader->SetUniform("strength", (std::sin(time * 4) + 1.0f) * 0.5f);
+			shader->SetUniform("radius", 0.5f);
 		}
 
 		engine->Get<nc::Renderer>()->BeginFrame();

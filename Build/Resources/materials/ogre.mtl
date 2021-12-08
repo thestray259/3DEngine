@@ -15,7 +15,7 @@
       1
     ],
     "shininess": 64,
-    "shader_name": "shaders/phong_normal_optimize.shdr",
+    "shader_name": "shaders/phong_normal.shdr",
     "texture_names": [
       "textures/ogre_diffuse.bmp",
       "textures/ogre_normal.bmp"
